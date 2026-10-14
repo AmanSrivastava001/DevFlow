@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: devflow
+  datasource:
+    url: jdbc:h2:file:./data/devflow;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ''
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  jackson:
+    time-zone: UTC
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+app:
+  jwt-secret: ${JWT_SECRET:devflow-local-only-secret-change-in-prod-12345678}
+  cors-origins: ${CORS_ORIGINS:http://localhost:5173,http://127.0.0.1:5173}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

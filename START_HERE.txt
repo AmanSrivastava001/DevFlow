@@ -1,0 +1,38 @@
+DEVFLOW — START HERE (Windows + VS Code)
+=======================================
+
+1) EXTRACT this ZIP into a normal folder.
+2) Install JDK 21, Maven 3.9+, Node.js 22 LTS, and VS Code.
+3) Open the extracted "DevFlow" folder in VS Code.
+4) Start two VS Code terminals:
+   TERMINAL 1: cd backend   then   mvn spring-boot:run
+   TERMINAL 2: cd frontend  then   npm install   then   npm run dev
+   (Run each command separately and leave both terminals open.)
+5) Open http://localhost:5173 and create an account.
+
+ALTERNATIVE on Windows: double-click start-backend.bat, then start-frontend.bat.
+
+THAT'S IT. No PostgreSQL installation is required locally.
+Your tasks will remain saved in backend/data after closing the app.
+
+GITHUB:
+  Create an EMPTY repo called devflow on github.com.
+  In the extracted DevFlow folder terminal:
+    git init -b main
+    git add .
+    git commit -m "Initial DevFlow"
+    git remote add origin https://github.com/YOUR_USERNAME/devflow.git
+    git push -u origin main
+
+LIVE DEPLOY:
+  Use Render > New Web Service > GitHub repo > Docker runtime.
+  Add a PostgreSQL database and set DB_URL, DB_USERNAME,
+  DB_PASSWORD, JWT_SECRET as environment variables.
+  Detailed instructions (and alternative Railway): README.md
+
+NOTE: GitHub stores the code; Render/Railway run the live web app.
+Do not commit real passwords, secrets, .env files, or database files.
+
+FREE DEPLOYMENT (Neon + Render Free + optional Cloudflare):
+  READ FREE_DEPLOY_HINGLISH.md (complete guided walkthrough).
+  Cloudflare builds frontend/ with VITE_API_BASE_URL, Render uses Dockerfile at repo root.
